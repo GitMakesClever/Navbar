@@ -1,0 +1,118 @@
+<!-- Responsive Navigation Bar to If click handbracker slide down -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", serif;
+        }
+        nav{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #d2dae2;
+        }
+        p{
+            margin: 16px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .navlinks ul {
+            display: flex;
+        }
+        .navlinks ul li{
+            list-style: none;
+        }
+        .navlinks ul li a{
+            text-decoration: none;
+            color: black;
+            padding: 18px 16px;
+            display: block;
+
+        }
+        .navlinks ul li a:hover{
+            background-color: #808e9b;
+            color: #fff;
+        }
+        .handbracker{
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 30px;
+            height: 25px;
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bar{
+            height: 3px;
+            width: 100%;
+            background-color: black;
+            border-radius: 16px;
+        }
+        @media(max-width:768px){
+            
+            .handbracker{
+                display: flex;
+            }
+            nav{
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navlinks{
+                display: none;
+                width: 100%;
+            }
+            .navlinks ul{
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+            }
+            .navlinks ul:first-child{
+                border-top: 1px solid #fff;
+            }
+            .navlinks.active{
+                display: flex;
+            }  
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <p>Tutor Joes's</p>
+        <a href="#" class="handbracker">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </a>
+        <div class="navlinks">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Abouts</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </div>
+    </nav>     
+    <script>
+        const handbracker = document.getElementsByClassName("handbracker")[0];
+        const navlinks = document.getElementsByClassName("navlinks")[0];
+        handbracker.addEventListener('click',()=>{
+            navlinks.classList.toggle("active");
+        });
+    </script>  
+</body>
+</html>
